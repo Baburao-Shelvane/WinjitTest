@@ -18,7 +18,8 @@ export class DashboardComponent implements OnInit {
     this.settings = {
       columns: {
         id: {
-          title: 'ID'
+          title: 'Book Id',
+          editable: false,
         },
         name: {
           title: 'Book Name',
@@ -31,14 +32,26 @@ export class DashboardComponent implements OnInit {
       attr: {
         class: 'table table-bordered'
       },
-      hideSubHeader:{
-        hideSubHeader:false
+      hideSubHeader: false,
+      pager : {
+        display : true,
+        perPage:10
       },
       actions: {
         add: false,
-        edit: false,
-        delete: false,
+        edit: true,
+        delete: true,
         position: 'right'
+      },
+      edit: {
+        editButtonContent: ' &nbspEdit &nbsp',
+        saveButtonContent: ' &nbspUpdate &nbsp',
+        cancelButtonContent:'Cancel',
+        confirmSave: true
+      },
+      delete: {
+        deleteButtonContent: 'Delete',
+        confirmDelete: true
       },
     };
     this.data = [
@@ -62,6 +75,46 @@ export class DashboardComponent implements OnInit {
         name: "Zngular JS",
         price: "100"
       },
+      {
+        id: 4,
+        name: "Zngular JS",
+        price: "100"
+      },
+      {
+        id: 4,
+        name: "Zngular JS",
+        price: "100"
+      },
+      {
+        id: 4,
+        name: "Zngular JS",
+        price: "100"
+      },
+      {
+        id: 4,
+        name: "Zngular JS",
+        price: "100"
+      },
+      {
+        id: 4,
+        name: "Zngular JS",
+        price: "100"
+      },
+      {
+        id: 4,
+        name: "Zngular JS",
+        price: "100"
+      },
+      {
+        id: 4,
+        name: "Zngular JS",
+        price: "100"
+      },
+      {
+        id: 4,
+        name: "Zngular JS",
+        price: "100"
+      }
     ];
     
   }
@@ -70,6 +123,22 @@ export class DashboardComponent implements OnInit {
     this.userList = JSON.parse(localStorage.getItem('users'));
     console.log(this.userList);
     this.source = new LocalDataSource(this.data);
+  }
+ 
+  onDeleteConfirm(event) {
+    if (window.confirm('Are you sure you want to delete?')) {
+      event.confirm.resolve();
+    } else {
+      event.confirm.reject();
+    }  
+  }
+  onSaveConfirm(event) {
+    if (window.confirm('Are you sure you want to save?')) {
+      event.newData['name'] += ' + added in code';
+      event.confirm.resolve(event.newData);
+    } else {
+      event.confirm.reject();
+    }
   }
 
 }

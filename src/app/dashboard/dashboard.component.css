@@ -9,3 +9,34 @@ table {
 .ng2-smart-actions >.ng2-smart-action {
   padding-right: 10px !important;
 }
+.add-book-div{
+  text-align: right;
+  margin-bottom: 20px;
+  padding-right: 0px;
+}
+
+.add-book-div > a {
+  background-color: #3fbce7 !important;
+  border: #3fbce7;
+}
+.book-header{
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.book-heading-left{
+  padding-left: 0px;
+}
+/* .ng2-smart-page-link{
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+}
+.ng2-smart-page-item{
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+} */
