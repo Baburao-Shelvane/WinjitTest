@@ -1,0 +1,5 @@
+.notfound{
+    display: flex;
+    object-fit: fill;
+    width: 100%;
+}

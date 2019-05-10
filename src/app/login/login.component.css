@@ -1,0 +1,7 @@
+#loginModal{
+    display: block;
+}
+
+#loginModal .modal-footer{
+    display: block;
+}
