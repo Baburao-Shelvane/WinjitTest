@@ -58,7 +58,7 @@ export class DashboardComponent implements OnInit {
       actions: {
         add: false,
         edit: (this.role=="Admin") ? true:false,
-        delete: true,
+        delete: (this.role=="Admin") ? true:false,
         position: 'right'
       },
       edit: {
