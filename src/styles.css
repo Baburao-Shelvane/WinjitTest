@@ -1,2 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+
+.table-bordered {
+    border: 3px solid #dee2e6 !important;
+}
+.ng2-smart-page-link.page-link.page-link-next, .ng2-smart-page-link.page-link.page-link-prev{
+    padding: 11px;
+}
+.ng2-smart-title{
+    color:#1e6bb8;
+}
+.is-error{
+    color:#c85963;
+}
+
+input.ng-touched,input.ng-dirty {
+    background-color: #f8d7da;
+}
+input.ng-valid {
+    background-color: #fff;
+}
+.fa-remove{
+    color:red !important;
+}
+.fa-edit{
+    color:green !important;
+    margin-right: 10px;
+}
+.fa-save{
+    color:blue !important;
+    margin-right: 10px;
+}
+.fa-retweet{
+    color:orange !important;
+}
+.fa{
+    font-size: 17px !important;
+}

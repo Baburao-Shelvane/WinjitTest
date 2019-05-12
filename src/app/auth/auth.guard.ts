@@ -13,8 +13,8 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+      // check user login or not. if login then redirect to dashboard otherwise redirect to login page.
       var user = this.auth.isLoggedIn();
-      console.log("user --> "+ user);
       if(user){
         return true;
       }else{

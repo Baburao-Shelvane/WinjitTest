@@ -1,7 +1,14 @@
 #loginModal{
     display: block;
+    background: #D6EAF8;
 }
 
 #loginModal .modal-footer{
     display: block;
+}
+
+.modal-header {
+    display: block;
+    widows: 100%;
+    text-align: center;
 }

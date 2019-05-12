@@ -6,8 +6,8 @@
           <div class="col-md-6 float-left book-heading-left">
               <h3>Book List</h3>
           </div>
-          <div class="col-md-6 float-left add-book-div">
-              <a href="javascript:;" class="btn btn-primary"><b>Add Book</b></a>
+          <div class="col-md-6 float-left add-book-div"  *ngIf = "(role=='Admin') ? true:false" >
+              <a href="javascript:;" class="btn btn-primary" (click)="openBookModal()"><b>Add Book</b></a>
           </div> 
 
       </div>
@@ -19,31 +19,44 @@
       (editConfirm)="onSaveConfirm($event)"
       ></ng2-smart-table>
   </div>
-  <div class="modal fade in" id="addBookModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal" id="addBookModal" [ngStyle]="{'display':isVisiable}">
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="recipient-name" class="form-control-label">Recipient:</label>
-                <input type="text" class="form-control" id="recipient-name">
-              </div>
-              <div class="form-group">
-                <label for="message-text" class="form-control-label">Message:</label>
-                <textarea class="form-control" id="message-text"></textarea>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Send message</button>
-          </div>
+        <div class="modal-content shadow-lg bg-white rounded">
+          <form #bookForm ="ngForm" (ngSubmit)="addBook(bookForm.value)">
+            <div class="modal-header">
+              <h5 class="modal-title">Add Book</h5>
+              <button type="button" class="close" (click)="closeBookModal()" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                  <label for="bookname">Book Name:</label>
+                  <input type="text" class="form-control" #booknameRef="ngModel" required pattern="" class="form-control"  placeholder="Book name" name="book_name" ngModel>
+                  <div *ngIf="booknameRef.errors && (booknameRef.dirty || booknameRef.touched)" class="is-error">
+                    <div [hidden]="!booknameRef.errors.required">
+                      Book name is required.
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="bookprice">Book Price:</label>
+                  <input type="text" class="form-control" #bookpriceRef="ngModel" required pattern="[0-9]+([\.][0-9]{0,2})?" class="form-control"  placeholder="Book price" name="book_price" ngModel>
+                  <div *ngIf="bookpriceRef.errors && (bookpriceRef.dirty || bookpriceRef.touched)" class="is-error">
+                    <div [hidden]="!bookpriceRef.errors.required">
+                      Book price is required.
+                    </div>
+                    <div [hidden]="!bookpriceRef.errors.pattern">
+                      Enter valid book price.
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="closeBookModal()" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-primary" [disabled]=!(bookForm.form.valid)>Submit</button>
+            </div>
+          </form>
         </div>
       </div>
   </div>

@@ -19,6 +19,9 @@ table {
   background-color: #3fbce7 !important;
   border: #3fbce7;
 }
+.add-book-div:hover {
+  opacity: 0.8;
+}
 .book-header{
   padding: 0px !important;
   margin: 0px !important;
@@ -26,6 +29,9 @@ table {
 .book-heading-left{
   padding-left: 0px;
 }
+
+
+
 /* .ng2-smart-page-link{
   position: relative;
   display: block;

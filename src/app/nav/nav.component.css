@@ -2,5 +2,14 @@
     background-color: #3FBCE7 !important;
 }
 .navbar ul li>a {
-    color: #FFF !important;
-}    
+    color: #fff !important;
+    font-weight: 700 !important;
+}
+
+.navbar-nav > li{
+    margin-right:10px;
+}
+
+.navbar-nav > li:hover{
+    opacity: 0.8;
+}

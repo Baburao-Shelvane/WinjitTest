@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,9 +12,12 @@ import { AuthGuardService } from '../app/auth/auth-guard.service';
 import { NavComponent } from './nav/nav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule} from '@angular/forms';
-import { HttpClientModule , HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+
+import { ToastrModule } from 'ng6-toastr-notifications';
+import { Books } from './api/books';
+import { Users } from './api/users';
 
 @NgModule({
   declarations: [
@@ -25,13 +30,17 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    AngularFontAwesomeModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
+    ToastrModule.forRoot()
   ],
   providers: [
-    AuthGuardService
+    AuthGuardService,
+    Books,
+    Users
   ],
   bootstrap: [AppComponent]
 })
