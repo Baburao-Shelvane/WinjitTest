@@ -6,12 +6,11 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 
 import { AuthGuardService } from '../app/auth/auth-guard.service';
 import { NavComponent } from './nav/nav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 
@@ -23,7 +22,6 @@ import { Users } from './api/users';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,
     NavComponent,
     DashboardComponent,
     PageNotFoundComponent

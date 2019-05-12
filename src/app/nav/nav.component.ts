@@ -13,8 +13,8 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
   
-  logout(){
+  logout() {
     localStorage.removeItem('currentUser');
-    this.myRoute.navigate(["login"]);
+    this.myRoute.navigate(['login']);
   }
 }
